@@ -10,12 +10,12 @@ namespace TestClient
     {
         private static void Main()
         {
-            var files = Directory.GetFiles("Config", "*.json");
+            var files     = Directory.GetFiles("Config", "*.json");
+            var validator = new NewtonSoftConfigValidator();
 
             foreach (var file in files)
             {
-                var validator = new NewtonSoftConfigValidator();
-                var results   = validator.ValidateFile(file);
+                var results = validator.ValidateFile(file);
 
                 switch (results)
                 {
