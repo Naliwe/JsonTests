@@ -3,7 +3,7 @@
     "ClaimType": "Default",
     "Widgets": {
       "Providers": {
-        "Path": "Claim.Providers"
+        "Path": "ClaimProviders"
       }
     }
   }

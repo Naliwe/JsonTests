@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Validator\Validator.csproj"/>
+        <ProjectReference Include="..\Validator\Validator.csproj" />
     </ItemGroup>
 
     <ItemGroup>

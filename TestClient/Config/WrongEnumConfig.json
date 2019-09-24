@@ -1,6 +1,6 @@
 {
   "Claim": {
-    "ClaimType": "Default",
+    "ClaimType": "Default1231",
     "Widgets": {
       "Providers": {
         "Path": "Claim.Providers"

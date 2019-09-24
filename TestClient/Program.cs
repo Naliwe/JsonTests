@@ -10,23 +10,27 @@ namespace TestClient
     {
         private static void Main()
         {
-            var jsonFile  = Path.Combine("Config", "DefaultConfig.json");
-            var validator = new NewtonSoftConfigValidator();
-            var results   = validator.ValidateFile(jsonFile);
+            var files = Directory.GetFiles("Config", "*.json");
 
-            switch (results)
+            foreach (var file in files)
             {
-                case ValidResults<ConfigRoot> validResults:
-                    Console.WriteLine($"Yay! {validResults.Result.Claim.ClaimType}");
-                    break;
-                case InvalidResults invalidResults:
-                    Console.WriteLine("Too bad!");
-                    invalidResults.Errors.ForEach(
-                        err => Console.WriteLine(
-                            $"{err.Path} {err.LineNumber}-{err.LinePosition}: {err.Message}"
-                        )
-                    );
-                    break;
+                var validator = new NewtonSoftConfigValidator();
+                var results   = validator.ValidateFile(file);
+
+                switch (results)
+                {
+                    case ValidResults<ConfigRoot> validResults:
+                        Console.WriteLine($"Yay! {validResults.Result.Claim.ClaimType}");
+                        break;
+                    case InvalidResults invalidResults:
+                        Console.WriteLine($"Too bad! File {file} has errors");
+                        invalidResults.Errors.ForEach(
+                            err => Console.WriteLine(
+                                $"\t> {err.Path} {err.LineNumber}-{err.LinePosition}: {err.Message}"
+                            )
+                        );
+                        break;
+                }
             }
         }
     }
