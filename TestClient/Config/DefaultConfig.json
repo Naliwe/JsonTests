@@ -1,0 +1,10 @@
+{
+  "Claim": {
+    "ClaimType": "Default",
+    "Widgets": {
+      "Providers": {
+        "Path": "Claim"
+      }
+    }
+  }
+}
