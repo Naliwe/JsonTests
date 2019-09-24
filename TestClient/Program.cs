@@ -11,7 +11,7 @@ namespace TestClient
         private static void Main()
         {
             var files     = Directory.GetFiles("Config", "*.json");
-            var validator = new NewtonSoftConfigValidator();
+            var validator = new ConfigValidator();
 
             foreach (var file in files)
             {

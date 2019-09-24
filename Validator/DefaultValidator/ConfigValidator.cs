@@ -11,7 +11,7 @@ using Validator.ValidationResults;
 
 namespace Validator.DefaultValidator
 {
-    public class NewtonSoftConfigValidator : IValidateJson
+    public class ConfigValidator : IValidateJson
     {
         private readonly JSchemaGenerator _generator = new JSchemaGenerator();
 
@@ -20,7 +20,7 @@ namespace Validator.DefaultValidator
 
         private IList<ValidationError> _errors = new List<ValidationError>();
 
-        public NewtonSoftConfigValidator()
+        public ConfigValidator()
         {
             _generator.GenerationProviders.Add(new StringEnumGenerationProvider());
             _generator.GenerationProviders.Add(new ProvidersWidgetConfig.SchemaGenerator());
